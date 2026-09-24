@@ -1,0 +1,11 @@
+# IPUMS microdata: not redistributable
+data/*
+!data/.gitkeep
+
+results/logs/
+results/tables/
+*.gph
+
+.ipynb_checkpoints/
+__pycache__/
+.venv/
