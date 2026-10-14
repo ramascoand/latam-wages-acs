@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this code or its figures, please cite it as below."
+title: "Latin American Immigrant Wages in the US (ACS 2010–2023)"
+abstract: "Wage gaps and college premiums by country of birth for Latin American immigrants in the US, using ACS microdata from IPUMS, plus an education and earnings profile by country of birth."
+authors:
+  - family-names: Ramasco
+    given-names: Andres
+    affiliation: University of Notre Dame
+repository-code: "https://github.com/ramascoand/latam-wages-acs"
+license: MIT
+date-released: 2026-10-14

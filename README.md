@@ -13,6 +13,18 @@ The analysis uses 14 years of American Community Survey microdata (IPUMS USA, ~1
 
 ![College premium by country of birth](results/figures/college_premium_by_country_LI.png)
 
+## Who are they? Education and pay by country of birth
+
+A companion profile pools ACS 2021–2023 and describes every Latin American-born group in the US against a US-born benchmark (2% sample).
+
+- **Venezuelans are the most educated group.** 53% of Venezuela-born adults 25+ hold a bachelor's degree or more, compared with 36% of the US-born and 9% of the Mexico-born.
+- **They earn far less than that education predicts.** Their median full-time, year-round earnings are about $45k, roughly $17k below the typical US-born worker and well under the trend across other Latin American countries.
+- **Recent arrival is a likely reason.** 64% of Venezuela-born residents arrived in the last 10 years, the highest share of any group.
+
+![Education vs. pay by country of birth](results/figures/pop_education_vs_pay_LI.png)
+
+The full table (population, age, English proficiency, naturalization, years in the US, employment, earnings and top state for each country) is in [`results/tables/population_profile.csv`](results/tables/population_profile.csv).
+
 ## Method
 
 Pooled Mincer regression, PERWT-weighted, heteroskedasticity-robust (HC1) SEs:
@@ -40,6 +52,9 @@ The notebook documents three bugs in the original Stata prep and fixes them:
 | `do/master.do` | Runs the Stata pipeline: `1_data_prep.do` → `2_mincer_by_country.do` → `3_college_premium.do` (uses `reghdfe`) |
 | `do/ipums_extract_spec.md` | Exact IPUMS samples and variables needed to rebuild the extract |
 | [`notebooks/latam_wages_exploration.ipynb`](notebooks/latam_wages_exploration.ipynb) | Python translation plus the fixes above, the charts, and a gender-gap extension |
+| `notebooks/extract_population.py` | Reads the raw extract in chunks and keeps Latin American-born residents plus a 2% US-born sample (ACS 2021–2023) |
+| `notebooks/population_profile.py` | Builds the country-of-birth profile table |
+| `notebooks/population_plots.py` | Draws the education and pay figures from the profile table |
 | `results/figures/` | Figures |
 
 ## Data
@@ -53,3 +68,11 @@ The microdata **is not included**. IPUMS terms of use do not allow redistributio
 The regressions use a 3M-row random subsample by default (`REGRESSION_SAMPLE_N`), because `statsmodels` builds a dense design matrix.
 
 *Data: Ruggles et al., IPUMS USA, University of Minnesota, [ipums.org](https://www.ipums.org). See IPUMS for the current citation format.*
+
+## License
+
+The code is released under the [MIT License](LICENSE). The figures and tables in `results/` are released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The ACS microdata remain subject to the IPUMS terms of use.
+
+## Citation
+
+If you use this code or its figures, please cite the repository. GitHub's "Cite this repository" button uses `CITATION.cff`.

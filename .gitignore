@@ -3,7 +3,8 @@ data/*
 !data/.gitkeep
 
 results/logs/
-results/tables/
+results/tables/*
+!results/tables/population_profile.csv
 *.gph
 
 .ipynb_checkpoints/
